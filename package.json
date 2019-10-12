@@ -1,0 +1,25 @@
+{
+  "name": "React_Socket_Table",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aadimurthy/React_Socket_Table.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aadimurthy/React_Socket_Table/issues"
+  },
+  "homepage": "https://github.com/aadimurthy/React_Socket_Table#readme",
+  "dependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "^3.2.0"
+  }
+}
