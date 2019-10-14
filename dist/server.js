@@ -25,6 +25,7 @@ io.on('connection', function (socket) {
 
     if (Array.isArray(rooms)) {
       rooms.forEach(function (room) {
+        console.log('XXXXXX', room);
         socket.join(room);
       });
     } else {

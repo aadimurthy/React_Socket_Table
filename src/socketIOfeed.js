@@ -7,7 +7,8 @@ export default class socketIOfeed {
         this.io.emit('join', stockCodes);
       }
       this.onUpdate= (callback)=>{
-        this.io.emit('stock', callback);
+          console.log('YYYYYYY')
+        this.io.on('stock', callback);
     }
     this.disConnect=(stockCode)=>{
         this.io.emit('leave', stockCode);

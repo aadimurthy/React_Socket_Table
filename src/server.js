@@ -15,13 +15,14 @@ let port = process.env.PORT || 3001;
 
 app.use(express['static'](__dirname + '/../public'));
 
-io.on('connection', function (socket) {
+io.on('connection',  (socket)=> {
     console.log('User connected. Socket id %s', socket.id);
 
-    socket.on('join', function (rooms) {
+    socket.on('join',  (rooms)=> {
         console.log('Socket %s subscribed to %s', socket.id, rooms);
         if (Array.isArray(rooms)) {
-            rooms.forEach(function(room) {
+            rooms.forEach((room) =>{
+                console.log('XXXXXX',room)
                 socket.join(room);
             });
         } else {
@@ -29,10 +30,10 @@ io.on('connection', function (socket) {
         }
     });
 
-    socket.on('leave', function (rooms) {
+    socket.on('leave',  (rooms)=> {
         console.log('Socket %s unsubscribed from %s', socket.id, rooms);
         if (Array.isArray(rooms)) {
-            rooms.forEach(function(room) {
+            rooms.forEach((room) =>{
                 socket.leave(room);
             });
         } else {
@@ -40,7 +41,7 @@ io.on('connection', function (socket) {
         }
     });
 
-    socket.on('disconnect', function () {
+    socket.on('disconnect',  ()=> {
         console.log('User disconnected. %s. Socket id %s', socket.id);
     });
 });
@@ -49,6 +50,6 @@ tradeFeed.start((room, type, message)=> {
     io.to(room).emit(type, message);
 });
 
-server.listen(port, function () {
+server.listen(port,  () =>{
     console.log('listening on: 3001');
 });

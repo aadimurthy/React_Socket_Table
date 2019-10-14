@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "front": "react-scripts start",
-    "build": "babel src/server.js src/tradeFeed.js -d dist",
+    "build": "babel src -d dist",
     "start": "npm run build && node dist/server.js",
     "eject": "react-scripts eject",
     "test": "echo \"Error: no test specified\" && exit 1"
