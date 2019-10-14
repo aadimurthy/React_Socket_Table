@@ -7,7 +7,7 @@ Please note that this is very basic implementation not a production grade code.
 #### How to test: 
 
 ```
-1) npm install 
+1) npm install   (My Node version is  10.15.2)
 ```
 
 This pulls the required dependencies 
@@ -17,13 +17,15 @@ This pulls the required dependencies
 
 This starts the express server on localhost port 3001 to serve the mocked periodical SOCKET communication and REST end points 
 
+##### Now Open a new Terminal and run below command to run react components seperately 
+
 ```
 3) npm run front 
 ```
 
  This is an create-react-app starter pack. This start and sets up the development environment and starts a server, as well as hot module reloading.This uses localhost port 3000 and opens a webpage in default browser which shows the dynamic table as below 
  
- ![Screenshot]('Screenshot from 2019-10-14 10-33-50.png')
+ ![Screenshot](https://raw.githubusercontent.com/aadimurthy/React_Socket_Table/master/Screenshot%20from%202019-10-14%2010-33-50.png)
  
  
 
