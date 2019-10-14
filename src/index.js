@@ -10,9 +10,9 @@ const stream = new Stream()
 class ObserveStock extends React.Component {
   constructor() {
     super();
-    this.observerStock = ()=> {
-      this.props.onserveStockHandler(this.state.stockCode);
-      this.setState({ stockCode: "" });
+    this.observeStock = ()=> {
+      this.props.ObserveStockHandler(this.state.stockCode);
+      this.setState({ stockCode: '' });
     };
     this.handleChange = (event) =>{
       this.setState({ stockCode: event.target.value });
@@ -24,9 +24,9 @@ class ObserveStock extends React.Component {
   render() {
     return (
       <div className="row">
+          <h1>STOCK TRADE TABLE </h1>
         <p>
-          Available stocks for demo: MCD, BA, BAC, LLY, GM, GE, UAL, WMT, AAL1,
-          JPM
+          Available stocks for demo: ABS, AGI, MCD, ALI, AP, COL, LC, LR, MBT, SMDC
         </p>
         <div className="input-group">
           <input
@@ -173,7 +173,7 @@ class App extends React.Component {
       }
     );
 
-    this.observestock = (stockCodes) =>{
+    this.observeStock = (stockCodes) =>{
       stockCodes = stockCodes.replace(/ /g, "");
       let arr = stockCodes.split(",");
       stream.connect(arr);
