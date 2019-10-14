@@ -18,8 +18,23 @@ export default class tradeFeed {
             stock.last = stock.open;
             stock.high = stock.open;
             stock.low = stock.open;
+            let ranDate = this.randomDate(new Date(2012, 0, 1), new Date());
+            let dd = ranDate.getDate();
+            let mm=ranDate.getMonth()+1;
+            let yyyy = ranDate.getFullYear();
+            if (dd < 10) {
+              dd = '0' + dd;
+             } 
+           if (mm < 10) {
+            mm = '0' + mm;
+            } 
+            stock.date =  dd + '/' + mm + '/' + yyyy;
           });       
         } 
+
+    randomDate(start, end) {
+      return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    }    
     simulator(callback){
         let index = Math.floor(Math.random() * this.stocks.length);
             let stock = this.stocks[index];

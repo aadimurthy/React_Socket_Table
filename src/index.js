@@ -26,7 +26,7 @@ class ObserveStock extends React.Component {
       <div className="row">
           <h1>STOCK TRADE TABLE </h1>
         <p>
-          Available stocks for demo: ABS, AGI, MCD, ALI, AP, COL, LC, LR, MBT, SMDC
+          Available Stocks/Trades for demo: ABS, AGI, MCD, ALI, AP, COL, LC, LR, MBT, SMDC
         </p>
         <div className="input-group">
           <input
@@ -70,6 +70,7 @@ class StockRow extends React.Component {
     let lastClass = "";
     let changeClass = "change-positive";
     let iconClass = "glyphicon glyphicon-triangle-top";
+    
     if (this.props.stock === this.props.last) {
       lastClass =
         this.props.stock.change < 0 ? "last-negative" : "last-positive";
@@ -80,7 +81,7 @@ class StockRow extends React.Component {
     }
     return (
       <tr>
-        <td>"buy|sell"</td>
+        <td>{this.props.stock.date}</td>
         <td>{this.props.stock.stockCode}</td>
         <td>{this.props.stock.open}</td>
         <td className={lastClass}>{this.props.stock.last}</td>
@@ -132,11 +133,11 @@ class StockTable extends React.Component {
         <table className="table-hover">
           <thead>
             <tr>
-              <th>Action</th>
-              <th>stockCode</th>
-              <th>Open</th>
+              <th>Date</th>
+              <th>Trade ID</th>
+              <th>Amount</th>
               <th>Last</th>
-              <th>Change</th>
+              <th>State </th>
               <th>High</th>
               <th>Low</th>
               <th>Unwatch</th>
