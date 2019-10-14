@@ -8,7 +8,7 @@ export default class tradeFeed {
             { stockCode: "ALI", open: 69.45 },
             { stockCode: "AP", open: 83.24 },
             { stockCode: "COL", open: 55.76 },
-            { stockCode: "LC  ", open: 76.12 },
+            { stockCode: "LC", open: 76.12 },
             { stockCode: "LR", open: 61.75 },
             { stockCode: "MBT", open: 15.84 },
             { stockCode: "SMDC", open: 154.5 }
@@ -32,9 +32,38 @@ export default class tradeFeed {
           });       
         } 
 
+    getStocks(){
+      let res = [];
+      //this.stocks.forEach((stock, i) => { res[i]=stock.stockCode});
+      //return res;
+      return this.stocks;
+    }
+
+    loadStocks(newStocks){
+      newStocks.forEach((stock) => {
+        stock.last = stock.open;
+        stock.high = stock.open;
+        stock.low = stock.open;
+        let ranDate = this.randomDate(new Date(2012, 0, 1), new Date());
+        let dd = ranDate.getDate();
+        let mm=ranDate.getMonth()+1;
+        let yyyy = ranDate.getFullYear();
+        if (dd < 10) {
+          dd = '0' + dd;
+         } 
+       if (mm < 10) {
+        mm = '0' + mm;
+        } 
+        stock.date =  dd + '/' + mm + '/' + yyyy;
+      });
+     this.stocks = this.stocks.concat(newStocks);
+
+    }
+
     randomDate(start, end) {
       return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
     }    
+
     simulator(callback){
         let index = Math.floor(Math.random() * this.stocks.length);
             let stock = this.stocks[index];

@@ -4,16 +4,19 @@ import express from 'express';
 import http from 'http';
 import SocketIO from 'socket.io';
 import TradeFeed from "./tradeFeed";
+import bodyParser from 'body-parser';
 
 const tradeFeed = new TradeFeed();
 
 
-let app = express();
-let server = http.Server(app);
-let io = new SocketIO(server);
-let port = process.env.PORT || 3001;
+const app = express();
+const server = http.Server(app);
+const io = new SocketIO(server);
+const port = process.env.PORT || 3001;
 
 app.use(express['static'](__dirname + '/../public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 io.on('connection',  (socket)=> {
     console.log('User connected. Socket id %s', socket.id);
@@ -49,6 +52,24 @@ io.on('connection',  (socket)=> {
 tradeFeed.start((room, type, message)=> {
     io.to(room).emit(type, message);
 });
+ 
+  
+app.get('/api/v1/getStocks', (req, res) => {
+    res.status(200).send({
+      success: 'true',
+      stocks: tradeFeed.getStocks()
+    })
+  }); 
+  
+app.post('/api/v1/postStocks', (req, res) => {
+   let newStocks = req.body.stocks;
+   tradeFeed.loadStocks(newStocks);
+    res.status(200).send({
+      success: 'true',
+    })
+});   
+ 
+
 
 server.listen(port,  () =>{
     console.log('listening on: 3001');

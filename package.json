@@ -24,6 +24,7 @@
   "homepage": "https://github.com/aadimurthy/React_Socket_Table#readme",
   "dependencies": {
     "@babel/runtime": "^7.6.0",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
