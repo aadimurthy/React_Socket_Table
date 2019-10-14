@@ -16,7 +16,7 @@ var app = (0, _express.default)();
 var server = _http.default.Server(app);
 
 var io = new _socket.default(server);
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 app.use(_express.default['static'](__dirname + '/../public'));
 io.on('connection', function (socket) {
   console.log('User connected. Socket id %s', socket.id);
@@ -49,6 +49,6 @@ io.on('connection', function (socket) {
 tradeFeed.start(function (room, type, message) {
   io.to(room).emit(type, message);
 });
-server.listen(3000, function () {
-  console.log('listening on: 3000');
+server.listen(port, function () {
+  console.log('listening on: 3001');
 });

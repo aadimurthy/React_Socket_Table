@@ -11,7 +11,7 @@ const tradeFeed = new TradeFeed();
 let app = express();
 let server = http.Server(app);
 let io = new SocketIO(server);
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3001;
 
 app.use(express['static'](__dirname + '/../public'));
 
@@ -49,6 +49,6 @@ tradeFeed.start((room, type, message)=> {
     io.to(room).emit(type, message);
 });
 
-server.listen(3000, function () {
-    console.log('listening on: 3000');
+server.listen(port, function () {
+    console.log('listening on: 3001');
 });

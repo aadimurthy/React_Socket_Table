@@ -10,6 +10,7 @@
     "eject": "react-scripts eject",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "proxy": "http://localhost:3001",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aadimurthy/React_Socket_Table.git"

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Stream from "./stockFeedMock";
+//import Stream from "./stockFeedMock";
+import Stream from "./socketIOfeed";
 
 import "./styles.css";
 
